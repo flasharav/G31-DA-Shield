@@ -1,0 +1,246 @@
+{
+  "corpus_size": 910,
+  "module_a": {
+    "Rule baseline": {
+      "accuracy": 0.71,
+      "precision": 0.789,
+      "recall": 0.573,
+      "f1": 0.664,
+      "roc_auc": null,
+      "cm": [
+        [
+          415,
+          75
+        ],
+        [
+          209,
+          281
+        ]
+      ]
+    },
+    "TF-IDF + Naive Bayes": {
+      "accuracy": 0.8,
+      "precision": 0.715,
+      "recall": 0.998,
+      "f1": 0.833,
+      "roc_auc": 0.872,
+      "cm": [
+        [
+          295,
+          195
+        ],
+        [
+          1,
+          489
+        ]
+      ]
+    },
+    "TF-IDF + Logistic Regression": {
+      "accuracy": 0.819,
+      "precision": 0.751,
+      "recall": 0.955,
+      "f1": 0.841,
+      "roc_auc": 0.84,
+      "cm": [
+        [
+          335,
+          155
+        ],
+        [
+          22,
+          468
+        ]
+      ]
+    }
+  },
+  "module_a_folds": [
+    {
+      "held_out": "S1_parcel + L1_bank_alert",
+      "Rule baseline": 0.986,
+      "TF-IDF + Naive Bayes": 0.87,
+      "TF-IDF + Logistic Regression": 0.963
+    },
+    {
+      "held_out": "S2_aadhaar_ml + L2_family",
+      "Rule baseline": 0.852,
+      "TF-IDF + Naive Bayes": 0.903,
+      "TF-IDF + Logistic Regression": 0.903
+    },
+    {
+      "held_out": "S3_telecom + L3_courier_legit",
+      "Rule baseline": 0.772,
+      "TF-IDF + Naive Bayes": 0.979,
+      "TF-IDF + Logistic Regression": 0.978
+    },
+    {
+      "held_out": "S4_safe_account + L4_police_advisory",
+      "Rule baseline": 0.349,
+      "TF-IDF + Naive Bayes": 0.676,
+      "TF-IDF + Logistic Regression": 0.663
+    },
+    {
+      "held_out": "S5_fake_court + L5_kyc_legit",
+      "Rule baseline": 0.526,
+      "TF-IDF + Naive Bayes": 0.821,
+      "TF-IDF + Logistic Regression": 0.821
+    },
+    {
+      "held_out": "S6_family_threat + L6_news",
+      "Rule baseline": 0.035,
+      "TF-IDF + Naive Bayes": 0.704,
+      "TF-IDF + Logistic Regression": 0.731
+    },
+    {
+      "held_out": "S1_parcel + L7_services",
+      "Rule baseline": 0.986,
+      "TF-IDF + Naive Bayes": 0.993,
+      "TF-IDF + Logistic Regression": 0.947
+    }
+  ],
+  "module_b": {
+    "VERIFY (>=40)": {
+      "precision": 0.491,
+      "recall": 0.999,
+      "f1": 0.659,
+      "fpr": 0.0376
+    },
+    "HOLD (>=60)": {
+      "precision": 0.763,
+      "recall": 0.95,
+      "f1": 0.846,
+      "fpr": 0.0107
+    },
+    "roc_auc": 0.998,
+    "campaigns": 150,
+    "stopped_at_first_installment": 122,
+    "stopped_at_some_installment": 150,
+    "fraud_value_total_cr": 502.88,
+    "fraud_value_prevented_cr": 484.44,
+    "test_split": {
+      "Rule engine (HOLD)": {
+        "precision": 0.819,
+        "recall": 0.96,
+        "f1": 0.884,
+        "fpr": 0.0088
+      },
+      "Random Forest": {
+        "precision": 0.908,
+        "recall": 0.997,
+        "f1": 0.95,
+        "fpr": 0.0042,
+        "roc_auc": 1.0
+      }
+    },
+    "n_tx": 22605,
+    "n_fraud_tx": 793
+  },
+  "module_c": [
+    {
+      "step": 1,
+      "day": 1,
+      "amount_lakh": 25.0,
+      "cumulative_lakh": 25.0,
+      "score": 75,
+      "action": "HOLD 24h + trusted-contact callback",
+      "fired": [
+        "senior",
+        "amount_ratio_high",
+        "new_payee",
+        "young_payee_acct",
+        "fd_or_mf_liquidated_48h"
+      ]
+    },
+    {
+      "step": 2,
+      "day": 2,
+      "amount_lakh": 48.0,
+      "cumulative_lakh": 73.0,
+      "score": 90,
+      "action": "HOLD 24h + trusted-contact callback",
+      "fired": [
+        "senior",
+        "amount_ratio_high",
+        "new_payee",
+        "young_payee_acct",
+        "fd_or_mf_liquidated_48h",
+        "burst_72h"
+      ]
+    },
+    {
+      "step": 3,
+      "day": 4,
+      "amount_lakh": 72.0,
+      "cumulative_lakh": 145.0,
+      "score": 90,
+      "action": "HOLD 24h + trusted-contact callback",
+      "fired": [
+        "senior",
+        "amount_ratio_high",
+        "new_payee",
+        "young_payee_acct",
+        "fd_or_mf_liquidated_48h",
+        "burst_72h"
+      ]
+    },
+    {
+      "step": 4,
+      "day": 6,
+      "amount_lakh": 95.0,
+      "cumulative_lakh": 240.0,
+      "score": 75,
+      "action": "HOLD 24h + trusted-contact callback",
+      "fired": [
+        "senior",
+        "amount_ratio_high",
+        "new_payee",
+        "young_payee_acct",
+        "burst_72h"
+      ]
+    },
+    {
+      "step": 5,
+      "day": 9,
+      "amount_lakh": 112.0,
+      "cumulative_lakh": 352.0,
+      "score": 90,
+      "action": "HOLD 24h + trusted-contact callback",
+      "fired": [
+        "senior",
+        "amount_ratio_high",
+        "new_payee",
+        "young_payee_acct",
+        "fd_or_mf_liquidated_48h",
+        "burst_72h"
+      ]
+    },
+    {
+      "step": 6,
+      "day": 12,
+      "amount_lakh": 85.0,
+      "cumulative_lakh": 437.0,
+      "score": 75,
+      "action": "HOLD 24h + trusted-contact callback",
+      "fired": [
+        "senior",
+        "amount_ratio_high",
+        "young_payee_acct",
+        "fd_or_mf_liquidated_48h",
+        "burst_72h"
+      ]
+    }
+  ],
+  "demo": [
+    {
+      "text": "Madam you are under digital arrest, stay on video call and transfer FD to RBI safe account",
+      "p_scam": 0.821
+    },
+    {
+      "text": "Pune Police: no such thing as digital arrest, report on 1930",
+      "p_scam": 0.056
+    },
+    {
+      "text": "Aai doctor appointment fixed Thursday, I will drop you",
+      "p_scam": 0.126
+    }
+  ]
+}

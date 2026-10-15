@@ -1,0 +1,2 @@
+Put DA-Shield-Demo.exe in this folder.
+See README.md section 5 for how to build it.
